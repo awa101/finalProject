@@ -56,6 +56,7 @@ SYSTEM_APPS = [
     "django.contrib.staticfiles",
     "article.apps.ArticleConfig",
     "hello",
+    "django_crontab",
 ]
 
 INSTALLED_APPS = SYSTEM_APPS
@@ -144,3 +145,10 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# CRONTAB_DJANGO_SETTINGS_MODULE= 'finalProject.settings'
+
+CRONJOBS = [
+    ('*/1 * * * *', 'article.cron.cronCrawling', '>> '+os.path.join(BASE_DIR, 'config/log/cron2.log')),
+]
