@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from article.ditAPI import tools
+from article.ditAPI import tools # ㅇㅖ담님 짱 good
 
 
 def index(request):
     return HttpResponse("서버연결 극혐")
 
-
+# url to Crawling
 def InputUrlCrawling(inputUrl):
     temp = tools.get_title_contents(inputUrl)
     result = {"test1": temp[0], "test2": temp[1]}
