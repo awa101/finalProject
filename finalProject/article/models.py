@@ -12,7 +12,7 @@ class Article(models.Model):
     result = models.TextField()  # 낚시성인지 결과
     crawling_time = models.DateTimeField()  # 크롤링한 시간
     img = models.TextField() # 이미지
-    gubun = models.TextField()
+    gubun = models.TextField() # input, daily 구분
 
     def __str__(self):
         return self.title
