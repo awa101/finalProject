@@ -51,11 +51,16 @@ def get_title_contents(news_site):
             and "span" not in i
             and "strong" not in i
         ]
-
+        temp = {'title': title_text,
+                'contents': contents_text,
+                'press': '언론사명',
+                'img': 'https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202211/10/moneytoday/20221110094129395caim.jpg',
+                'time': '입력 2022. 11. 10. 09:38',
+                'reporter': '기자'}
     except AttributeError as err:
         return None
     else:
-        return [title_text, contents_text]
+        return temp
 
 
 # 매일 크롤링

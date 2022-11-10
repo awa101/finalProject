@@ -9,8 +9,7 @@ def index(request):
 # url to Crawling
 def InputUrlCrawling(inputUrl):
     temp = tools.get_title_contents(inputUrl)
-    result = {"test1": temp[0], "test2": temp[1]}
-    return result
+    return temp
 
 
 def viewtest(request) :
@@ -18,4 +17,4 @@ def viewtest(request) :
     # 화면에서 input 받은 데이터
 
     temp = InputUrlCrawling("https://n.news.naver.com/article/028/0002614078?cds=news_media_pc")
-    return HttpResponse(temp[0])
+    return HttpResponse(temp)
