@@ -11,6 +11,7 @@ class Article(models.Model):
     publication_str = models.TextField()  # 발행시간 문자열
     result = models.TextField()  # 낚시성인지 결과
     crawling_time = models.DateTimeField()  # 크롤링한 시간
+    img = models.TextField() # 이미지
 
     def __str__(self):
         return self.title

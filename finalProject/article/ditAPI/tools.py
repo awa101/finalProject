@@ -42,9 +42,7 @@ def get_title_contents(news_site):
         soup = soup_page(news_site)
         title_text = soup.select_one(class_name[0]).text
         contents_text = str(soup.select_one(class_name[1]))
-        contents_text = [
-            i
-            for i in contents_text.split("<br/>")
+        contents_text = [i for i in contents_text.split("<br/>")
             if len(i) > 1
             and "class=" not in i
             and "id=" not in i
