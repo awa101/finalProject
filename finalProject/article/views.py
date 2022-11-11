@@ -61,4 +61,12 @@ def viewtest(request) :
     return HttpResponse(temp.title+temp.result)
 
 # ------- 아래부터 함수 추가하시면 됩니다. 
-
+from django.template import loader
+def main (request):
+    news_info=tools.daily_news_grab()
+    template = loader.get_template('/Users/coletda/mnt/c/venvs/wslFinal/finalProject/templates/mainpage.html')
+    context={
+        'news_info' : news_info,
+    }
+    return HttpResponse(template.render(context,request))
+    
