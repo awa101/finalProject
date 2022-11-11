@@ -13,6 +13,11 @@ class Article(models.Model):
     crawling_time = models.DateTimeField()  # 크롤링한 시간
     img = models.TextField() # 이미지
     gubun = models.TextField() # input, daily 구분
+    '''
+    # 기사내용
+    # 로고 이미지
+    # 썸네일 이미지    
+    '''
 
     def __str__(self):
         return self.title
