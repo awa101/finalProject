@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup as bs
-import publisher as pb
-import temp as temp
+from . import publisher as pb
+from . import temp as temp
 import requests
 # dates = date_range("20210101", "20210109")
 
