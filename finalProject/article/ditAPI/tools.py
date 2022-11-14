@@ -99,8 +99,8 @@ def daily_news_grab():
     soup=soup_page(daum)
     count=10
     articles_info=[{ 
-            "logo":soup.select(".item_issue > a >img")[i].get("src"),
-            "thumbnail":soup.select(".logo_cp >img")[i].get("src"),
+            "thumbnail":soup.select(".item_issue > a >img")[i].get("src"),
+            "logo":soup.select(".logo_cp >img")[i].get("src"),
             "link":soup.select(".item_issue > a")[i].get("href"),
             "category":soup.select(".txt_category")[i].text,
         }for i in range(count)]
