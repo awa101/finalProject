@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup as bs
-from . import publisher as pb
-from . import temp as temp
+import publisher as pb
+import temp as temp
 import requests
 # dates = date_range("20210101", "20210109")
 
@@ -36,13 +36,14 @@ def get_title_contents(news_site):
         soup=soup_page(news_site)
         #title
         news_info["title"] = soup.select_one(class_name["title"]).text
+       
 
         if class_name["name"]=="naver":
             
             #time
             temp_time=soup.select_one(class_name["time"][0]).get(class_name["time"][1])
             date_time_str = temp_time
-            news_info["time"]=datetime.datetime.strptime(date_time_str, '%Y-%m-%d %H:%M:%S')
+            news_info["time"]=datetime.strptime(date_time_str, '%Y-%m-%d %H:%M:%S')
             #press
             news_info["press"]=soup.select_one(class_name["press"][0]).get(class_name["press"][1])
             #contents
@@ -52,10 +53,7 @@ def get_title_contents(news_site):
             #time
             temp_time=soup.select_one(class_name["time"]).text+":00"
             date_time_str = temp_time
-            news_info["time"]=datetime.strptime(date_time_str, '%Y. %m. %d. %H:%M:%S')
-      
-           
-             
+            news_info["time"]=datetime.strptime(date_time_str, '%Y. %m. %d. %H:%M:%S')       
             # date_time_obj = datetime.datetime.strptime(date_time_str, '%Y. %m. %d. %H:%M:%S')
             # news_info["time"]=date_time_obj.strftime("%Y-%m-%d %H:%M:%S")
             #press
@@ -149,4 +147,5 @@ def grab_link(link):
     news_lists_links=list(set([link[i].get('href')for i in range(len(link))]))
      #기사 리스트 유무
     return news_lists_links
+
 
