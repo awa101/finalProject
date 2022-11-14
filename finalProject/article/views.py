@@ -61,12 +61,33 @@ def viewtest(request) :
     return HttpResponse(temp.title+temp.result)
 
 # ------- 아래부터 함수 추가하시면 됩니다. 
+
+def getFakeData():
+    daily_news = tools.daily_news_grab()
+    for i in daily_news:
+        
+        article = Article(title = i['title'],
+        reporter = i['reporter'],
+        press = i['press'],
+        link = i['link'],
+        publication_time = i['time'],
+        publication_str = '발행시간',
+        result = 10,
+        crawling_time = timezone.now(),
+        img = i['thumbnail'],
+        gubun = "daily",
+        logo=i["logo"],
+        thumbnail = i["thumbnail"],
+        category =  i["category"])
+     
+        article.save()
+    return
+
 from django.template import loader
 def main (request):
-    news_info=tools.daily_news_grab()
-    template = loader.get_template('/Users/coletda/mnt/c/venvs/wslFinal/finalProject/templates/mainpage.html')
+    articles=Article.objects.all()
+    template=loader.get_template('article/mainpage.html')
     context={
-        'news_info' : news_info,
+        "articles":articles,
     }
     return HttpResponse(template.render(context,request))
-    

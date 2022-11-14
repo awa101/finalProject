@@ -1,64 +1,95 @@
 .news-section {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
-.news-section h1 {
-  margin-bottom: 50px;
-  font-size: 30px;
-  color: white;
-}
+
 .news-lists {
   display: flex;
   justify-content: center;
   width: auto;
   align-items: center;
   flex-wrap: wrap;
-  height: 500px;
+  margin-bottom: 250px;
 }
 
 .news-list {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   list-style-type: none;
-  border: 1px solid gray;
+  flex-direction: column;
   background-color: white;
-  padding: 5px;
+  padding: 20px;
   max-width: 500px;
   min-width: 350px;
-  height: 100px;
+  height: 300px;
   border-radius: 20px;
   transition: 0.2s ease-in-out;
-  margin: 5px 20px;
-  box-shadow: 5px 5px 20px 0px black;
+  margin: 20px 20px;
+  margin-bottom: -200px;
+  box-shadow: 5px 5px 20px -5px gray;
 }
 
 .news-list:hover {
-  transform: scale(1.1);
-  height: 200px;
-  margin: 50px 30px;
+  transform: translateY(-100px);
+  margin-bottom: -140px;
 }
 .news-list__contents {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   padding: 0px 20px;
 }
-.news-list .logo img {
-  transform: scale(0.4);
-  position: absolute;
-  left: 0px;
-  top: 0px;
-}
-.news_info_img {
-  transform: scale(1.4);
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px 0px black;
+.news-list__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.news-links {
-  position: absolute;
+.news-list__upper {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50%;
+}
+.news-list__lower {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 50%;
+  width: 100%;
+}
+.news-list__info {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.news-list__info .category {
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.5);
+}
+.news-list__title {
+  text-align: start;
+  font-size: 15px;
+  font-weight: 700;
+  width: 200px;
+}
+.news-list__right {
+  width: 100px;
+  height: 80px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px #0002;
+}
+.news-list__upper a {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
 }
