@@ -11,8 +11,11 @@ class Article(models.Model):
     publication_str = models.TextField()  # 발행시간 문자열
     result = models.TextField()  # 낚시성인지 결과
     crawling_time = models.DateTimeField()  # 크롤링한 시간
-    img = models.TextField() # 이미지
+    img = models.TextField() # 기사내부 이미지 
     gubun = models.TextField() # input, daily 구분
+    logo = models.TextField() #logo 로고 이미지.
+    thumbnail = models.TextField() #thumbnail img 링크
+    category= models.TextField() #category 뉴스 분야
     '''
     # 기사내용
     # 로고 이미지

@@ -1,0 +1,36 @@
+<ul class="news-lists">
+  {% for article in articles%}
+  <l1 class="news-list">
+    <div class="news-list__upper">
+      <a href="article/{{article.id}}.html">
+        <div class="news-list__left">
+          <div class="news-list__info">
+            <span>
+              <img
+                class="logo"
+                src="{{article.logo}}"
+                alt=""
+                style="width: 50px; height: 20px; margin-right: 10px"
+            /></span>
+            <span class="category">{{article.category}}</span>
+          </div>
+          <span class="news-list__title">{{article.title}}</span>
+        </div>
+        <div class="news-list__right">
+          <img
+            src="{{article.img}}"
+            alt=""
+            style="
+              width: 100px;
+              height: 80px;
+              object-fit: cover;
+              border-radius: 5px;
+            "
+          />
+        </div>
+      </a>
+    </div>
+    <div class="news-list__lower">{{article.result}}</div>
+  </l1>
+  {% endfor %}
+</ul>

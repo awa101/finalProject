@@ -1,9 +1,9 @@
-@import "/reset.css";
-@import "/components/header.css";
-@import "/components/search-box.css";
-@import "/components/news-lists.css";
-@import "/components/loading.css";
-
+@import "./reset.css";
+@import "./components/header.css";
+@import "./components/search-box.css";
+@import "./components/news-lists.css";
+@import "./components/loading.css";
+@import "./components/result.css";
 * {
   box-sizing: border-box;
 }
@@ -15,11 +15,12 @@ body {
   justify-content: space-evenly;
   text-align: center;
   position: relative;
-  background-color: #36517e;
   width: 100vw;
+  height: 100%;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  background: linear-gradient(33deg, #c1e3ff, #abc7ff);
+  box-shadow: 0 5px 10px #0002;
 }
 .lower {
   display: flex;
@@ -27,10 +28,14 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: 900px;
+  min-width: 350px;
 }
 .upper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  min-width: 500px;
+  min-width: 350px;
   max-width: 700px;
 }
 
@@ -51,60 +56,12 @@ body {
   color: white;
   margin-top: 50px;
   font-size: 30px;
+  font-weight: 700;
 }
-.result {
-  position: relative;
-  display: none;
-  margin-top: 100px;
-  width: 80%;
-  height: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 20px;
-}
-.appear {
-  display: flex;
-  justify-content: center;
-  animation: appear 1s ease-in-out forwards;
-}
-.disappear {
-  display: flex;
-  animation: disappear 1s ease-in-out forwards;
-}
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    height: 500px;
-  }
-  100% {
-    opacity: 1;
-    height: 500px;
-  }
-}
-@keyframes disappear {
-  0% {
-    display: flex;
-    height: 500px;
-  }
-  100% {
-    height: 0px;
-  }
-}
-.result button {
-  background: transparent;
-  color: white;
-  right: 30px;
-  top: 30px;
-  font-size: 30px;
 
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  font-weight: 900;
-}
 h1 {
   margin: 50px;
   color: white;
+  font-weight: 700;
   font-size: 30px;
 }
