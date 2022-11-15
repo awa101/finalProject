@@ -1,0 +1,21 @@
+{% for article in articles%}
+<div class="modal" id="news-{{article.id}}">
+  <div class="modal-header">
+    <div class="title">{{article.title}}</div>
+    <button data-close-button class="close-button">&times;</button>
+  </div>
+  <div class="modal-body">
+    <input
+      id="slider"
+      type="range"
+      value="24"
+      min="1"
+      max="100"
+      oninput="this.nextElementSibling.value = this.value"
+    />
+    <output>24</output>
+  </div>
+  <a href="{{article.link}}" target="_blank"><button>본문 링크</button></a>
+</div>
+<div class="" id="overlay"></div>
+{% endfor %}
