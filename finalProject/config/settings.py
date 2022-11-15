@@ -133,7 +133,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -150,7 +150,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # CRONTAB_DJANGO_SETTINGS_MODULE= 'finalProject.settings'
 
 CRONJOBS = [
-    ('*/1 * * * *', 'article.cron.cronCrawling', '>> '+os.path.join(BASE_DIR, 'config/log/cron2.log')),
+    ('*/3 * * * *', 'article.cron.cronCrawling', '>> '+os.path.join(BASE_DIR, 'config/log/cron2.log')),
 ]
 
 LOGGING = {
