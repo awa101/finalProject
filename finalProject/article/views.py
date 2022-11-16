@@ -76,28 +76,8 @@ def viewtest(request) :
 
 # ------- 아래부터 함수 추가하시면 됩니다. 
 
-def getFakeData():
-    daily_news = tools.daily_news_grab()
-    for i in daily_news:
-        
-        article = Article(title = i['title'],
-        reporter = i['reporter'],
-        press = i['press'],
-        link = i['link'],
-        publication_time = i['time'],
-        publication_str = '발행시간',
-        result = 10,
-        crawling_time = timezone.now(),
-        img = i['thumbnail'],
-        gubun = "daily",
-        logo=i["logo"],
-        thumbnail = i["thumbnail"],
-        category =  i["category"])
-     
-        article.save()
-    return
-
 from django.template import loader
+from django.http import JsonResponse
 def main (request):
     articles=Article.objects.all()
     template=loader.get_template('article/mainpage.html')
@@ -105,3 +85,16 @@ def main (request):
         "articles":articles,
     }
     return HttpResponse(template.render(context,request))
+
+def result(request):
+    link=request.GET.get('inputLink')
+    news=InputUrlCrawling(link)
+    news= {
+        'title':news.title,
+        'reporter':news.reporter,
+        'press': news.press,
+        'result': news.result,
+        'img':news.img,
+        'time':news.publication_str
+    }
+    return JsonResponse(news)

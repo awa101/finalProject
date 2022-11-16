@@ -1,5 +1,6 @@
 <div class="main">
-  <form action="" class="search-box" method="POST">
+  <form class="search-box" method="POST" action="{%url 'result'%}">
+    {% csrf_token %}
     <input
       type="text"
       required
@@ -24,8 +25,14 @@
         <span></span>
         <span></span>
       </div>
-      <div class="score"></div>
     </div>
+    {%if news is not null%}
+    <div class="score">
+      <div class="score-slider">{{news.title}}</div>
+      <div class="score-result"></div>
+      <div class="score-detail"></div>
+    </div>
+    {%endif%}
     <button><i class="fa-solid fa-x"></i></button>
   </div>
 </div>

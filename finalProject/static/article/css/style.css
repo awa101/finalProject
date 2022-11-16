@@ -1,9 +1,10 @@
 @import "./reset.css";
-@import "./components/header.css";
 @import "./components/search-box.css";
 @import "./components/news-lists.css";
 @import "./components/loading.css";
 @import "./components/result.css";
+@import "./components/modal.css";
+@import "./components/slider.css";
 * {
   box-sizing: border-box;
 }
@@ -21,6 +22,7 @@ body {
   flex-direction: column;
   background: linear-gradient(33deg, #c1e3ff, #abc7ff);
   box-shadow: 0 5px 10px #0002;
+  box-sizing: border-box;
 }
 .lower {
   display: flex;
