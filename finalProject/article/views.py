@@ -79,7 +79,7 @@ def viewtest(request) :
 from django.template import loader
 from django.http import JsonResponse
 def main (request):
-    articles=Article.objects.all()
+    articles=Article.objects.all()[:10]
     template=loader.get_template('article/mainpage.html')
     context={
         "articles":articles,
