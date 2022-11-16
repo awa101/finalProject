@@ -26,13 +26,11 @@
         <span></span>
       </div>
     </div>
-    {%if news is not null%}
     <div class="score">
-      <div class="score-slider">{{news.title}}</div>
+      <progress max="100" value="50 " class="score-slider"></progress>
       <div class="score-result"></div>
       <div class="score-detail"></div>
     </div>
-    {%endif%}
     <button><i class="fa-solid fa-x"></i></button>
   </div>
 </div>

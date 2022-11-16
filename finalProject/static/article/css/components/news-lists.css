@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
 }
-
 .news-lists {
   padding-top: 40px;
   padding-bottom: 20px;
@@ -12,9 +11,8 @@
   width: auto;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 250px;
+  margin-bottom: 50px;
 }
-
 .news-list {
   position: relative;
   display: flex;
@@ -34,7 +32,6 @@
   box-shadow: 5px 5px 20px -5px gray;
   cursor: pointer;
 }
-
 .news-list:hover {
   transform: translateY(-60px);
   margin-bottom: -200px;
@@ -42,9 +39,9 @@
 .news-list__contents {
   display: flex;
   width: 100%;
+  padding: 0px 20px;
   justify-content: space-around;
   align-items: center;
-  padding: 0px 20px;
 }
 .news-list__left {
   display: flex;

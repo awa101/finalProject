@@ -1,0 +1,6 @@
+footer {
+  display: flex;
+  height: 70px;
+  width: 100%;
+  background: linear-gradient(33deg, #41d8dd, #5583fe);
+}

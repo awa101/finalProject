@@ -1,11 +1,12 @@
 .score {
-  display: flex;
+  display: none;
   background-color: white;
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   min-width: 300px;
   min-height: 300px;
-  border-radius: 20px;
+  border-radius: 15px;
+  animation: expand 0.3s ease-in-out forwards;
 }
 .result {
   position: relative;
@@ -47,12 +48,21 @@
     height: 0px;
   }
 }
+@keyframes expand {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .result button {
   background: transparent;
   color: white;
   right: 10px;
   top: 10px;
-  font-size: 30px;
+  font-size: 25px;
   border: none;
   cursor: pointer;
   position: absolute;
