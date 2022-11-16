@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
-from article.ditAPI import tools, modelPredictScore, pred # ㅇㅖ담님 짱 good
+from article.ditAPI import tools, modelPredictScore, pred, wordcloud # ㅇㅖ담님 짱 good
 import json
 from django.utils import timezone
 from article.models import Article
 from django.http import JsonResponse
+
 
 
 
@@ -60,9 +61,9 @@ def datilyCrawling():
         print(article)
         article.save()
 
-
-
     print('datilyCrawling 함수 실행 : ', timezone.now())
+
+
 
 def viewtest(request) :
     # 화면 가져가는 데이터
@@ -74,8 +75,17 @@ def viewtest(request) :
     # json_val = json.dumps(data, ensure_ascii=False).encode('utf8') 
     return HttpResponse(temp)
 
+
+
 def viewtest2(request) :
-    return HttpResponse('test2')
+    texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
+    text = texts["contents"] # 내용 값만 변수에 저장
+    args = wordcloud.Wordcloud(text) # 이미지 리턴
+
+    return render(request, 'wordcloudgen/cloud_gen.html', args) # test용 http 따로 만듦. 
+     # return HttpResponse('test2')
+
+
 
 # ------- 아래부터 함수 추가하시면 됩니다. 
 
