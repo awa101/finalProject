@@ -5,6 +5,7 @@ from article.ditAPI import tools, modelPredictScore, pred # ㅇㅖ담님 짱 goo
 import json
 from django.utils import timezone
 from article.models import Article
+from django.http import JsonResponse
 
 
 
@@ -17,16 +18,17 @@ def index(request):
 def InputUrlCrawling(inputUrl):
     temp = tools.get_title_contents(inputUrl)
     today = timezone.now()
-
+    print('input temp : ', temp)
     '''
     1. publication_time, publication_str 타입 및 format 정리 후 데이터 결정
     2. result 컬럼에 예측값 결과 넣기 
     '''
-    result = str(modelPredictScore.articleScore(article)) # 예측 
+    result = pred.modelPredictFunc(temp['title'], temp['contents'])# 예측 
+    print('input result : ', result)
     article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
     # title, contents, press, img, time, reporter
-    # a.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
-    return article
+    article.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
+    return temp["title"], result
 
 # 예측 
 def modelPredict(article) :
@@ -54,7 +56,7 @@ def datilyCrawling():
         print(test)
         model_result = pred.modelPredictFunc(test['title'], test['contents'])
         print(model_result)
-        article = Article(title=test["title"], reporter=test["reporter"], press=test["press"], link=test["link"], publication_time=test["time"], crawling_time=today, img=test["img"], result=model_result, gubun='daily')
+        article = Article(title=test["title"], reporter=test["reporter"], press=test["press"], link=test["link"], publication_time=test["time"], crawling_time=today, img=test["img"], result=model_result, gubun='daily', logo=test["logo"], thumbnail=test["thumbnail"], category=test["category"])
         print(article)
         article.save()
 
@@ -66,15 +68,11 @@ def viewtest(request) :
     # 화면 가져가는 데이터
     # 화면에서 input 받은 데이터
 
-    # temp = InputUrlCrawling("https://n.news.naver.com/article/028/0002614078?cds=news_media_pc")
-    #json_val = json.dumps(temp, ensure_ascii=False)
-    #json_val = serializers.serialize('json', temp)
-   
-    # result = pred.modelPredictFunc(temp.title, content)
-    # print('modelPredictFunc result : ', result)
-    # return HttpResponse(temp.title+temp.result)
-    datilyCrawling()
-    return HttpResponse('넴')
+    temp = InputUrlCrawling("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
+    print('Input result : ', temp)
+
+    # json_val = json.dumps(data, ensure_ascii=False).encode('utf8') 
+    return HttpResponse(temp)
 
 # ------- 아래부터 함수 추가하시면 됩니다. 
 
