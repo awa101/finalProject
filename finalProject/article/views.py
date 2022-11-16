@@ -74,6 +74,9 @@ def viewtest(request) :
     # json_val = json.dumps(data, ensure_ascii=False).encode('utf8') 
     return HttpResponse(temp)
 
+def viewtest2(request) :
+    return HttpResponse('test2')
+
 # ------- 아래부터 함수 추가하시면 됩니다. 
 
 from django.template import loader
