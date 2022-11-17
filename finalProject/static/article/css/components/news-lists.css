@@ -11,7 +11,6 @@
   width: auto;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 50px;
 }
 .news-list {
   position: relative;
@@ -80,6 +79,10 @@
   width: 200px;
 }
 .news-list__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 100px;
   height: 80px;
   border-radius: 5px;

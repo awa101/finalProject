@@ -15,20 +15,25 @@
         </div>
         <span class="news-list__title">{{article.title}}</span>
       </div>
+      {%if article.img != "video_news" %}
       <div class="news-list__right">
         <img
           src="{{article.img}}"
           alt=""
           style="
             width: 100px;
-            height: 80px;
+            height: 90px;
             object-fit: cover;
             border-radius: 5px;
+            box-shadow: 5px 5px 20px -5px gray;
           "
         />
       </div>
+      {%else%}
+      <div class="news-list__right">영상 뉴스</div>
+      {%endif%}
     </div>
-    <div class="news-list__lower">결과보기 &rarr;</div>
+    <div class="news-list__lower">클릭해서 결과보기 &rarr;</div>
   </li>
   {% endfor %}
 </ul>

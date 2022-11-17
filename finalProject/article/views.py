@@ -29,7 +29,7 @@ def InputUrlCrawling(inputUrl):
     article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
     # title, contents, press, img, time, reporter
     article.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
-    return temp["title"], result
+    return article
 
 # 예측 
 def modelPredict(article) :
@@ -100,14 +100,17 @@ def main (request):
     return HttpResponse(template.render(context,request))
 
 def result(request):
+    from datetime import datetime
     link=request.GET.get('inputLink')
     news=InputUrlCrawling(link)
+    time=news.publication_time.strftime("%Y/%m/%d %H:%M:%S")
     news= {
         'title':news.title,
         'reporter':news.reporter,
         'press': news.press,
         'result': news.result,
         'img':news.img,
-        'time':news.publication_str
+        'time':time
     }
+    print(news)
     return JsonResponse(news)

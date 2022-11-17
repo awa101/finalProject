@@ -1,13 +1,3 @@
-.score {
-  display: none;
-  background-color: white;
-  width: 85%;
-  height: 85%;
-  min-width: 300px;
-  min-height: 300px;
-  border-radius: 15px;
-  animation: expand 0.3s ease-in-out forwards;
-}
 .result {
   position: relative;
   display: none;
@@ -32,11 +22,11 @@
     opacity: 0;
   }
   50% {
-    height: 500px;
+    height: 400px;
   }
   100% {
     opacity: 1;
-    height: 500px;
+    height: 400px;
   }
 }
 @keyframes disappear {
@@ -60,11 +50,92 @@
 .result button {
   background: transparent;
   color: white;
-  right: 10px;
-  top: 10px;
+  right: -7%;
+  top: -7%;
   font-size: 25px;
   border: none;
   cursor: pointer;
   position: absolute;
   font-weight: 900;
+}
+
+.score {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  width: 85%;
+  height: 85%;
+  border-radius: 15px;
+  animation: expand 0.3s ease-in-out forwards;
+}
+
+.score-detail__small-text {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-right: 5px;
+}
+.score-detail__title {
+  height: 50%;
+  margin-top: 20px;
+  padding-right: 10px;
+  text-align: start;
+  font-weight: 600;
+  font-size: 18px;
+
+  line-height: 20px;
+}
+.score-detail {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid black;
+}
+.score-detail__left {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.score-detail__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px -5px gray;
+}
+.score-result {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.score-score-result__container span {
+  margin: 5px;
+}
+
+.score-result__container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.score-result__num {
+  font-size: 70px;
+  font-weight: 700;
+}
+.score-result__text {
+  height: auto;
+  max-width: 150px;
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 5px;
 }
