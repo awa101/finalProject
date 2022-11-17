@@ -45,9 +45,9 @@ function evalResult(score) {
 }
 
 function onSubmitLink(event) {
+  score.style.display = "none";
   result.classList.add("appear");
   event.preventDefault();
-
   $.ajax({
     url: "result",
     type: "GET",
@@ -58,7 +58,7 @@ function onSubmitLink(event) {
     },
     error: function () {
       result.classList.remove("appear");
-      alert("링크를 다시 입력해 주세요");
+      alert("네이버 혹은 다음 을 통한 뉴스 링크를 넣어 주세요!");
     },
   });
 }
