@@ -12,6 +12,7 @@ from transformers import AutoTokenizer
 import easydict
 from pathlib import Path
 
+
 # 전역변수
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f'current device : {device}')
@@ -79,10 +80,11 @@ def get_tokenizer(args):
     return tokenizer
 
 
-
 """## Prediction"""
 
+
 class kobert_Classifier(nn.Module):
+
     def __init__(self, bert, hidden_size=768, num_classes=2, dr_rate=0.0):
         super(kobert_Classifier, self).__init__()
         self.bert = bert
@@ -160,6 +162,9 @@ def test_ensemble_main(args, title, content, ensemble='soft'):   # 'soft', 'hard
         soft_output = list(np.argmax(all_fold_logits, axis=1))
         return soft_output, all_fold_logits
 
+
+
+
 def modelPredictFunc(title, content) :
 
     print('----------> title test : ', title)
@@ -170,7 +175,8 @@ def modelPredictFunc(title, content) :
     soft_output, all_fold_logits = test_ensemble_main(args, title, content, ensemble=method)
     print('test_ensemble_main')
 
-    score = all_fold_logits[0][0] / 2
+    score = (all_fold_logits[0][0] / 2)*100
+    score = round(score)
 
     print(score)
     return score
