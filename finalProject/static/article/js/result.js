@@ -3,7 +3,12 @@ const submitLink = document.querySelector(".search-box");
 const inputLink = document.querySelector("input[name='article-link']");
 const submitBtn = document.querySelector(".submit");
 const resultClose = document.querySelector(".result button");
-let score = 0;
+
+function showResult(news) {
+  setTimeout(function () {
+    score.style.display = "flex";
+  }, 1000);
+}
 
 function onSubmitLink(event) {
   event.preventDefault();
@@ -24,10 +29,9 @@ function onSubmitLink(event) {
 }
 function handleResultClose(event) {
   event.preventDefault();
+  score.style.display = "none";
   result.classList.remove("appear");
 }
 
 submitLink.addEventListener("submit", onSubmitLink);
 resultClose.addEventListener("click", handleResultClose);
-
-function showResult(news) {}

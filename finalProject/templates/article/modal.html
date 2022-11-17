@@ -5,17 +5,19 @@
     <button data-close-button class="close-button">&times;</button>
   </div>
   <div class="modal-body">
-    <input
-      id="slider"
-      type="range"
-      value="24"
-      min="1"
+    <progress
+      data-result
+      value="{{article.result}}"
       max="100"
-      oninput="this.nextElementSibling.value = this.value"
-    />
-    <output>24</output>
+      class="score-slider"
+    ></progress>
+    <div class="modal-score">
+      <div>{{article.result|floatformat:"0"}}</div>
+    </div>
   </div>
-  <a href="{{article.link}}" target="_blank"><button>본문 링크</button></a>
+  <a href="{{article.link}}" target="_blank"
+    ><button class="link-button">본문 링크</button></a
+  >
 </div>
-<div class="" id="overlay"></div>
 {% endfor %}
+<div class="" id="overlay"></div>
