@@ -12,6 +12,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 50px;
+  z-index: 0;
 }
 .news-list {
   position: relative;

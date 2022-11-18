@@ -28,7 +28,6 @@ def Wordcloud(context, key):
     plt.figure()
     plt.imshow(gen)
     plt.axis('off')
-    plt.show()
     now = datetime.now()
     time = now.strftime('%H, %M, %S')
         #wc.to_file(f'static/article/media/{time}.png')

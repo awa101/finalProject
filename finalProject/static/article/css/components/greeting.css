@@ -1,4 +1,5 @@
 .greeting {
+  padding: 10px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -28,7 +29,7 @@
   font-weight: bold;
 }
 
-.modal-header .greeting-button {
+.greeting-close {
   cursor: pointer;
   border: none;
   outline: none;
@@ -50,4 +51,8 @@
 
 .greeting.text {
   font-size: 20px;
+}
+.greeting-button {
+  background-color: white;
+  border: none;
 }

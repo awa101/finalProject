@@ -22,18 +22,10 @@ body {
   align-items: center;
   flex-direction: column;
 
-  /* Created with https://www.css-gradient.com */
-  /* back-ground-1 */
-  /* top left top left bottom right ==> top to bottom */
   background: #7e5de6;
   background: -webkit-linear-gradient(bottom left, #7e5de6, #45bcbd);
   background: -moz-linear-gradient(bottom left, #7e5de6, #45bcbd);
   background: linear-gradient(to top right, #7e5de6, #45bcbd);
-  /* back-ground-2 */
-  /* background: #d8456e;
-  background: -webkit-linear-gradient(top left, #d8456e, #0a61bb);
-  background: -moz-linear-gradient(top left, #d8456e, #0a61bb);
-  background: linear-gradient(to bottom right, #d8456e, #0a61bb); */
   box-shadow: 0 5px 10px #0002;
   box-sizing: border-box;
 }
@@ -63,18 +55,22 @@ body {
 }
 .header {
   width: 100%;
-  height: 100px;
+  height: 80px;
   margin-bottom: 50px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   cursor: pointer;
 }
 .header h1 {
   color: white;
+  opacity: 0.5;
   margin-top: 50px;
   font-size: 25px;
   font-weight: 700;
+}
+.header h1:hover {
+  opacity: 0.8;
 }
 
 h1 {
