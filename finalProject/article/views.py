@@ -12,6 +12,7 @@ from django.http import JsonResponse
 
 # ------------------------- Don't touch Code
 
+
 def index(request):
     return HttpResponse("서버연결 극혐2")
 
@@ -28,7 +29,18 @@ def InputUrlCrawling(inputUrl):
     print('input result : ', result)
     article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
     # title, contents, press, img, time, reporter
+    print(article.title)
     article.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
+
+    wordcloud.Wordcloud(temp['contents'], article.articleid) 
+
+
+    # article.articleid
+    # key = Article.objects.order_by('-pk')[0]
+    # key = Article.objects.latest('id')
+    # pkey = Article.objects.get(link=key)
+    # print(pkey.id)
+    # print("key : ", key)
     return article
 
 # 예측 
@@ -69,7 +81,7 @@ def viewtest(request) :
     # 화면 가져가는 데이터
     # 화면에서 input 받은 데이터
 
-    temp = InputUrlCrawling("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
+    temp = InputUrlCrawling("https://n.news.naver.com/article/024/0000078382?cds=news_media_pc&type=editn")
     print('Input result : ', temp)
 
     # json_val = json.dumps(data, ensure_ascii=False).encode('utf8') 
@@ -80,10 +92,29 @@ def viewtest(request) :
 def viewtest2(request) :
     texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
     text = texts["contents"] # 내용 값만 변수에 저장
-    args = wordcloud.Wordcloud(text) # 이미지 리턴
+    uri = wordcloud.Wordcloud(text) # 이미지 리턴
+    print(len(uri))
 
-    return render(request, 'wordcloudgen/cloud_gen.html', args) # test용 http 따로 만듦. 
-     # return HttpResponse('test2')
+    return HttpResponse(uri)
+    # return render(request, 'wordcloudgen/cloud_gen.html', uri) # test용 http 따로 만듦. 
+    # return HttpResponse('test2')
+
+def wordcloudtest(request):
+    texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
+    text = texts["contents"] # 내용 값만 변수에 저장
+    b64 = wordcloud.Wordcloud(text, '아무값' ) # 이미지 리턴
+    print(b64)
+    context = {'img': b64}
+    render(request, 'hello/temp.html', context)
+
+    # wc = WordCloud(width=400, height=400, scale=2.0, max_font_size=250, font_path="C:/venvs/final/wslFinal/finalProject/article/ditAPI/BMDOHYEON_ttf.ttf")
+    # gen = wc.generate_from_frequencies(c)
+    # plt.figure()
+    # plt.imshow(gen)
+    # args = {'image': plt.imshow(gen)}
+    # print(len(uri))
+
+    # render(request, 'hello/temp.html', args)
 
 
 
