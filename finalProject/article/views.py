@@ -6,7 +6,12 @@ import json
 from django.utils import timezone
 from article.models import Article
 from django.http import JsonResponse
+from django.db.models import Q
 
+import os
+from django.conf import settings
+from django.shortcuts import render
+from django.templatetags.static import static
 
 
 
@@ -21,27 +26,44 @@ def InputUrlCrawling(inputUrl):
     temp = tools.get_title_contents(inputUrl)
     today = timezone.now()
     print('input temp : ', temp)
-    '''
-    1. publication_time, publication_str 타입 및 format 정리 후 데이터 결정
-    2. result 컬럼에 예측값 결과 넣기 
-    '''
+
+
+    # titleulr = Article.objects.filter(articleid__gt=1).values('title', 'link')
+    # print('titleulr : ', titleulr)
+    # 제목temp["title"]과 링크inputUrl DB에 있는 데이터 조회해서 
+    # 같은 값 있는지 체크
+    # 있으면 그 데이터 그대로 리턴
+    # 없으면 세이브
+
+    same = Article.objects.filter(Q(title=temp['title']) & Q(link=inputUrl) & Q(gubun='input'))
+    if same:
+        return same
+
     result = pred.modelPredictFunc(temp['title'], temp['contents'])# 예측 
     print('input result : ', result)
     article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
-    # title, contents, press, img, time, reporter
     print(article.title)
+    
     article.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
-
     wordcloud.Wordcloud(temp['contents'], article.articleid) 
-
-
-    # article.articleid
-    # key = Article.objects.order_by('-pk')[0]
-    # key = Article.objects.latest('id')
-    # pkey = Article.objects.get(link=key)
-    # print(pkey.id)
-    # print("key : ", key)
+    
     return article
+
+
+
+    
+    # result = pred.modelPredictFunc(temp['title'], temp['contents'])# 예측 
+    # print('input result : ', result)
+    # article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
+    # print(article.title)
+    
+    # article.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
+
+    # wordcloud.Wordcloud(temp['contents'], article.articleid) 
+
+    # return article
+
+
 
 # 예측 
 def modelPredict(article) :
@@ -73,6 +95,8 @@ def datilyCrawling():
         print(article)
         article.save()
 
+        wordcloud.Wordcloud(test['contents'], article.articleid)
+
     print('datilyCrawling 함수 실행 : ', timezone.now())
 
 
@@ -90,14 +114,24 @@ def viewtest(request) :
 
 
 def viewtest2(request) :
-    texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
-    text = texts["contents"] # 내용 값만 변수에 저장
-    uri = wordcloud.Wordcloud(text) # 이미지 리턴
-    print(len(uri))
+    # texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
+    # text = texts["contents"] # 내용 값만 변수에 저장
+    # uri = wordcloud.Wordcloud(text) # 이미지 리턴
+    # print(len(uri))
 
-    return HttpResponse(uri)
-    # return render(request, 'wordcloudgen/cloud_gen.html', uri) # test용 http 따로 만듦. 
-    # return HttpResponse('test2')
+    # return HttpResponse(uri)
+    # # return render(request, 'wordcloudgen/cloud_gen.html', uri) # test용 http 따로 만듦. 
+    # # return HttpResponse('test2')
+    datilyCrawling()
+
+    return HttpResponse('gg')
+
+
+
+
+
+
+
 
 def wordcloudtest(request):
     texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")

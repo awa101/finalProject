@@ -32,8 +32,8 @@ def Wordcloud(context, key):
     now = datetime.now()
     time = now.strftime('%H, %M, %S')
         #wc.to_file(f'static/article/media/{time}.png')
-    plt.savefig(f'media/article/wcimg{key}.png')
-    return 'ok'
+    plt.savefig(f'static/media/article/wcimg{key}.png')
+    
     #----------
     # fig = plt.gcf()
     # buf = io.BytesIO()
