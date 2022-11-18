@@ -4,6 +4,7 @@ const inputLink = document.querySelector("input[name='article-link']");
 const submitBtn = document.querySelector(".submit");
 const resultClose = document.querySelector(".result button");
 const score = document.querySelector(".score");
+
 function showResult(news) {
   score.style.display = "flex";
   const scorePress = document.querySelector(".score-detail__press");
