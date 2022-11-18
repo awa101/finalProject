@@ -11,6 +11,7 @@
   width: auto;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 .news-list {
   position: relative;

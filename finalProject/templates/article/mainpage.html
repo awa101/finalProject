@@ -12,7 +12,7 @@
   <body>
     <div class="" id="overlay">
       <div class="header">
-        <h1 class>가짜뉴스일까?</h1>
+        <h1><i class="fa-solid fa-circle-question"></i></h1>
       </div>
       <div class="upper">{%include 'article/main.html'%}</div>
       <div class="lower">
@@ -22,10 +22,24 @@
       {%include 'article/footer.html'%}
     </div>
     {%include 'article/modal.html'%}
-
+    <div class="greeting">
+      <form class="greeting-form">
+        <div class="greeting-header">
+          <div class="title">어서오세요!!</div>
+          <button type="submit" class="greeting-close">&times;</button>
+        </div>
+        <div class="greeting-body">
+          <div class="text">
+            링크를 통해 뉴스 기사의 신뢰도를 알아보는 서비스 입니다.
+          </div>
+        </div>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">다시 보지 않기</label>
+      </form>
+    </div>
     <script src="{% static 'article/js/result.js'%}"></script>
     <script src="{% static 'article/js/modal.js'%}"></script>
-
+    <script src="{% static 'article/js/greeting.js'%}"></script>
     <script
       src="https://kit.fontawesome.com/218181cbb1.js"
       crossorigin="anonymous"
