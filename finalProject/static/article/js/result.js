@@ -14,6 +14,8 @@ function showResult(news) {
   const scoreImg = document.querySelector(".score-detail__right img");
   const scoreNum = document.querySelector(".score-result__num");
   const scoreText = document.querySelector(".score-result__text");
+  const resultImg = document.querySelector(".score-result img");
+  console.log(news.id);
   scorePress.innerText = news.press;
   if (news.reporter !== "입력 ") {
     scoreReporter.innerText = news.reporter;
@@ -25,6 +27,7 @@ function showResult(news) {
   } else {
     scoreImg.closest(".score-detail__right").innerText = "사진이 없습니다.";
   }
+  resultImg.setAttribute("src", `/static/media/article/wcimg${news.id}.png`);
   scoreNum.innerText = news.result;
   tempScore = evalResult(news.result);
   scoreText.innerText = tempScore.say;

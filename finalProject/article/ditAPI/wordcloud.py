@@ -23,10 +23,10 @@ def Wordcloud(context, key):
 
     c = Counter(words) # 위에서 얻은 words를 처리하여 단어별 빈도수 형태의 딕셔너리 데이터를 구함
     
-    wc = WordCloud(colormap='Set2', scale=2.0, max_font_size=250, font_path=dirTmp)
+    wc = WordCloud(colormap='Set2', scale=2.0, max_font_size=250, font_path=dirTmp,background_color="white",width=900,height=700)
     gen = wc.generate_from_frequencies(c)
     plt.figure()
-    plt.imshow(gen)
+    plt.imshow(gen,interpolation='lanczos')
     plt.axis('off')
     now = datetime.now()
     time = now.strftime('%H, %M, %S')

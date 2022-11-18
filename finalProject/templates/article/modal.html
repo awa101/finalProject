@@ -9,6 +9,15 @@
       <div class="modal-num">{{article.result|floatformat:"0"}}</div>
       <div class="modal-text"></div>
     </div>
+    <img
+      src="/static/media/article/wcimg{{article.articleid}}.png"
+      style="
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+      "
+    />
   </div>
   <a href="{{article.link}}" target="_blank"
     ><button class="link-button">본문 링크</button></a
