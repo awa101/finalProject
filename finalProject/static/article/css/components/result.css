@@ -65,6 +65,9 @@
   color: rgba(0, 0, 0, 0.5);
   margin-right: 5px;
 }
+.score-detail__small-text span {
+  margin-right: 5px;
+}
 .score-detail__title {
   height: 50%;
   margin-top: 20px;
@@ -111,11 +114,16 @@
 
 .score-result__container {
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
 }
 
-.score-result__num {
+.score-result__num span:first-child {
   font-size: 70px;
+  font-weight: 700;
+}
+.score-result__num span:last-child {
+  font-size: 40px;
   font-weight: 700;
 }
 .score-result__text {

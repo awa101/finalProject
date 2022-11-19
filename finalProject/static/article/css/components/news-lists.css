@@ -23,8 +23,7 @@
   flex-direction: column;
   background-color: white;
   padding: 20px;
-  max-width: 500px;
-  min-width: 350px;
+  width: 400px;
   height: 300px;
   border-radius: 20px;
   transition: 0.2s ease-in-out;
@@ -62,6 +61,9 @@
   align-items: flex-start;
   height: 50%;
   width: 100%;
+  opacity: 0.5;
+  font-weight: bold;
+  font-size: 13px;
 }
 .news-list__info {
   margin-bottom: 10px;

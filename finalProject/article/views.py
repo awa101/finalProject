@@ -167,15 +167,28 @@ def main (request):
 def result(request):
     from datetime import datetime
     link=request.GET.get('inputLink')
-    news=InputUrlCrawling(link)
-    time=news.publication_time.strftime("%Y/%m/%d %H:%M:%S")
-    news= {
-        'id':news.articleid,
-        'title':news.title,
-        'reporter':news.reporter,
-        'press': news.press,
-        'result': news.result,
-        'img':news.img,
-        'time':time
-    }
+    if Article.objects.filter(link=link):
+        article=Article.objects.get(link=link)
+        time=article.publication_time.strftime("%Y/%m/%d %H:%M:%S")
+        news = {
+            'id':article.articleid,
+            'title':article.title,
+            'reporter':article.reporter,
+            'press': article.press,
+            'result': article.result,
+            'img':article.img,
+            'time':time
+            }
+    else:
+        article=InputUrlCrawling(link)
+        time=article.publication_time.strftime("%Y/%m/%d %H:%M:%S")
+        news= {
+            'id':article.articleid,
+            'title':article.title,
+            'reporter':article.reporter,
+            'press': article.press,
+            'result': article.result,
+            'img':article.img,
+            'time':time
+            }
     return JsonResponse(news)

@@ -7,41 +7,90 @@
   z-index: 10;
   background-color: white;
   transition: 200ms ease-in-out;
-  width: 500px;
-  max-width: 80%;
+  width: 80%;
+  height: 80%;
+  max-width: 1300px;
+  max-height: 1200px;
   overflow: hidden;
+  padding: 50px;
 }
 .modal.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-header {
-  padding: 10px 15px;
+  position: relative;
+  height: 35%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
 }
-
+.modal-header__left {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.modal-header__left div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.modal-header__right {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  padding: 20px;
+  justify-content: space-between;
+}
+.crawling-time {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.6;
+  top: 20px;
+  left: 0px;
+}
+.modal-header .small-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal-header .small-text > div > span {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 10px;
+}
 .modal-header .title {
-  font-size: 1.25rem;
+  font-size: 30px;
   font-weight: bold;
+  text-align: start;
 }
 
 .modal-header .close-button {
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: white;
-  font-size: 1.25rem;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 40px;
   font-weight: bold;
+  position: absolute;
+  top: -40px;
+  right: -25px;
 }
 
 .modal-body {
   position: relative;
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 65%;
   justify-content: space-around;
   align-items: center;
   padding: 10px 15px;
@@ -74,15 +123,39 @@
 }
 
 .modal-num {
-  font-size: 70px;
+  font-size: 100px;
+  font-weight: 700;
+}
+.modal-num span:last-child {
+  font-size: 60px;
+  font-weight: 500;
+  padding-bottom: 5px;
   font-weight: 700;
 }
 .modal-text {
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 500;
   padding-bottom: 5px;
+  font-weight: 700;
 }
 .modal-score {
   display: flex;
+  justify-content: center;
   align-items: flex-end;
+  flex-direction: column;
+}
+.modal-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal-img h3 {
+  position: absolute;
+  top: 10px;
+  left: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.5;
 }

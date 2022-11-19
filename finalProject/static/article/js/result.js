@@ -12,7 +12,9 @@ function showResult(news) {
   const scoreTime = document.querySelector(".score-detail__time");
   const scoreTitle = document.querySelector(".score-detail__title");
   const scoreImg = document.querySelector(".score-detail__right img");
-  const scoreNum = document.querySelector(".score-result__num");
+  const scoreNum = document.querySelector(
+    ".score-result__num span:first-child"
+  );
   const scoreText = document.querySelector(".score-result__text");
   const resultImg = document.querySelector(".score-result img");
   console.log(news.id);
@@ -32,6 +34,8 @@ function showResult(news) {
   tempScore = evalResult(news.result);
   scoreText.innerText = tempScore.say;
   scoreNum.style.color = tempScore.color;
+  document.querySelector(".score-result__num span:last-child").style.color =
+    tempScore.color;
 }
 
 function evalResult(score) {

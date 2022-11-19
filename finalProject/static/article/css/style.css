@@ -30,6 +30,7 @@ body {
   box-sizing: border-box;
 }
 .lower {
+  margin-top: 50px 0px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -37,13 +38,30 @@ body {
   max-width: 900px;
   min-width: 350px;
 }
+
+.lower h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+}
+.lower h1:first-child {
+  margin-top: 50px;
+}
+.lower h1:nth-child(2) {
+  margin-bottom: -30px;
+}
+
+h1 > i {
+  margin-right: 50px;
+}
+
 .upper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  min-width: 350px;
-  max-width: 700px;
+  max-width: 800px;
+  margin-bottom: 50px;
 }
 
 .main {
@@ -71,11 +89,4 @@ body {
 }
 .header h1:hover {
   opacity: 0.8;
-}
-
-h1 {
-  margin: 50px;
-  color: white;
-  font-weight: 700;
-  font-size: 30px;
 }

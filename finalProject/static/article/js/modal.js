@@ -26,8 +26,8 @@ function paintModal() {
 
 openModalButtons.forEach((li) => {
   li.addEventListener("click", () => {
-    const modal = document.querySelector(li.dataset.modalTarget);
-    openModal(modal);
+    const news = document.querySelector(li.dataset.modalTarget);
+    openModal(news);
   });
 });
 
@@ -38,9 +38,9 @@ closeModalButtons.forEach((button) => {
   });
 });
 
-function openModal(modal) {
-  if (modal == null) return;
-  modal.classList.add("active");
+function openModal(news) {
+  if (news == null) return;
+  news.classList.add("active");
   overlay.classList.add("active");
 }
 
