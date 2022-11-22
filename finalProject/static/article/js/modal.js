@@ -2,31 +2,39 @@ const openModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
 const modalScore = document.querySelectorAll("[data-result]");
+const cateogryNews = document.querySelectorAll(".category-news-lists > li > a");
+const inputValue = document.querySelector(".link-input");
+const linkSubmit = document.querySelector(".search-box > button");
 
 function evalResult(score) {
-  if (score > 79) {
-    return { say: "정확합니다!", color: "#58f26c" };
-  } else if (80 > score && score > 59) {
-    return { say: "맞는것같습니다!", color: "#33d1e0" };
-  } else if (60 > score && score > 49) {
-    return { say: "긴가민가 합니다@", color: "#ecf470" };
-  } else if (50 > score && score > 19) {
-    return { say: "아닐확률 높아요", color: "#faa602" };
-  } else {
-    return { say: "못믿음", color: "#fa3a01" };
+  if (score > 49) {
+    return { say: "정확합니다!", color: "#c4e759, #6de195", class: "high" };
+  } else if (50 > score && score > 29) {
+    return {
+      say: "긴가민가 합니다@",
+      color: "#F78FAD,#FDEB82",
+      class: "medium",
+    };
+  } else if (30 > score && score > 19) {
+    return {
+      say: "아닐확률 높아요",
+      color: "#A43AB2,#E13680",
+      class: "low",
+    };
   }
 }
-function paintModal() {
-  modalScore.forEach((score) => {
-    const temp = evalResult(score.querySelector(".modal-num").innerText);
-    score.querySelector(".modal-num").style.color = temp.color;
-    score.querySelector(".modal-text").innerText = temp.say;
-  });
+
+function paintModal(news) {
+  const newsScore = news.querySelector(".progressbar");
+  const temp = evalResult(newsScore.getAttribute("aria-valuenow"));
+  newsScore.classList.add(temp.class);
+  news.querySelector(".modal-text").innerText = temp.say;
 }
 
 openModalButtons.forEach((li) => {
   li.addEventListener("click", () => {
     const news = document.querySelector(li.dataset.modalTarget);
+    paintModal(news);
     openModal(news);
   });
 });
@@ -49,4 +57,14 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
-paintModal();
+
+cateogryNews.forEach((a) => {
+  a.addEventListener("click", (event) => {
+    event.preventDefault();
+    const modal = a.closest(".modal");
+    closeModal(modal);
+    inputValue.value = a.getAttribute("href");
+    linkSubmit.click();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});

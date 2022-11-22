@@ -157,13 +157,15 @@ def wordcloudtest(request):
 from django.template import loader
 from django.http import JsonResponse
 def main (request):
-    articles=Article.objects.filter(gubun="daily")[:10]
+    articles=Article.objects.filter(gubun="daily").order_by('-crawling_time')[:10]
     template=loader.get_template('article/mainpage.html')
     for i in articles:
         i.category_news=tools.category_news_grab(i.category)
+    
     context={
         "articles":articles,
     }
+    
     return HttpResponse(template.render(context,request))
 
 def result(request):

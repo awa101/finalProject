@@ -63,7 +63,8 @@
   width: 100%;
   opacity: 0.5;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 15px;
+  padding-top: 25px;
 }
 .news-list__info {
   margin-bottom: 10px;
@@ -72,23 +73,23 @@
 }
 
 .news-list__info .category {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
   color: rgba(0, 0, 0, 0.5);
 }
 .news-list__title {
   text-align: start;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
-  width: 200px;
+  margin-top: 30px;
 }
 .news-list__right {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100px;
-  height: 80px;
-  border-radius: 5px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
   box-shadow: 0 5px 10px #0002;
 }

@@ -12,9 +12,7 @@ function showResult(news) {
   const scoreTime = document.querySelector(".score-detail__time");
   const scoreTitle = document.querySelector(".score-detail__title");
   const scoreImg = document.querySelector(".score-detail__right img");
-  const scoreNum = document.querySelector(
-    ".score-result__num span:first-child"
-  );
+  const scoreNum = document.querySelector(".score-result__num");
   const scoreText = document.querySelector(".score-result__text");
   const resultImg = document.querySelector(".score-result img");
   console.log(news.id);
@@ -30,25 +28,28 @@ function showResult(news) {
     scoreImg.closest(".score-detail__right").innerText = "사진이 없습니다.";
   }
   resultImg.setAttribute("src", `/static/media/article/wcimg${news.id}.png`);
-  scoreNum.innerText = news.result;
+  scoreNum.setAttribute("aria-valuenow", parseInt(news.result));
+  scoreNum.setAttribute("style", `--value: ${parseInt(news.result)}`);
   tempScore = evalResult(news.result);
+  scoreNum.classList.add(tempScore.class);
   scoreText.innerText = tempScore.say;
-  scoreNum.style.color = tempScore.color;
-  document.querySelector(".score-result__num span:last-child").style.color =
-    tempScore.color;
 }
 
 function evalResult(score) {
-  if (score > 79) {
-    return { say: "정확합니다!", color: "#58f26c" };
-  } else if (80 > score && score > 59) {
-    return { say: "맞는것같습니다!", color: "#33d1e0" };
-  } else if (60 > score && score > 49) {
-    return { say: "긴가민가 합니다@", color: "#ecf470" };
-  } else if (50 > score && score > 19) {
-    return { say: "아닐확률 높아요", color: "#faa602" };
-  } else {
-    return { say: "못믿음", color: "#fa3a01" };
+  if (score > 49) {
+    return { say: "정확합니다!", color: "#c4e759, #6de195", class: "high" };
+  } else if (50 > score && score > 29) {
+    return {
+      say: "긴가민가 합니다@",
+      color: "#F78FAD,#FDEB82",
+      class: "medium",
+    };
+  } else if (30 > score && score > 19) {
+    return {
+      say: "아닐확률 높아요",
+      color: "#A43AB2,#E13680",
+      class: "low",
+    };
   }
 }
 

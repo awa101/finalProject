@@ -6,6 +6,7 @@
 @import "./components/modal.css";
 @import "./components/footer.css";
 @import "./components/greeting.css";
+@import "./components/circle.css";
 * {
   box-sizing: border-box;
 }
@@ -86,7 +87,9 @@ h1 > i {
   margin-top: 50px;
   font-size: 25px;
   font-weight: 700;
+  transition: 0.2s ease-in-out;
 }
 .header h1:hover {
+  transform: scale(1.1);
   opacity: 0.8;
 }

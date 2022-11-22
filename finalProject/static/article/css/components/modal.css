@@ -8,7 +8,6 @@
   background-color: white;
   transition: 200ms ease-in-out;
   width: 80%;
-  height: 80%;
   max-width: 1300px;
   max-height: 1200px;
   overflow: hidden;
@@ -20,7 +19,6 @@
 
 .modal-header {
   position: relative;
-  height: 35%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,7 +88,6 @@
   position: relative;
   display: flex;
   width: 100%;
-  height: 65%;
   justify-content: space-around;
   align-items: center;
   padding: 10px 15px;
@@ -139,12 +136,14 @@
   font-weight: 700;
 }
 .modal-score {
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
 }
 .modal-img {
+  margin-top: 80px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -158,4 +157,30 @@
   font-size: 20px;
   font-weight: bold;
   opacity: 0.5;
+}
+.small-text .title {
+  margin: 30px 0px;
+}
+.category-news-lists > li > a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.category-news-lists > li > a > h2 {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 2px;
+  font-weight: 600;
+}
+
+.category-news-lists > li > a > h6 {
+  font-size: 8px;
+}
+.category-news-lists > li > a {
+  display: flex;
 }

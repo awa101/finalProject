@@ -1,23 +1,24 @@
 .search-box {
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 85%;
   align-items: center;
   box-shadow: 0 5px 10px #0002;
-  border-radius: 30px;
+  border-radius: 35px;
   background-color: white;
   transition: 0.2s ease-in-out;
   margin-bottom: 50px;
 }
 .search-box input {
   padding: 20px;
-  height: 60px;
+  height: 70px;
   width: 100%;
   font-size: 15px;
   border: none;
   outline: none;
   background: transparent;
   color: black;
+  font-size: 20px;
 }
 .search-box button {
   height: 60px;

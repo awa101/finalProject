@@ -39,7 +39,6 @@ def get_title_contents(news_site):
        
 
         if class_name["name"]=="naver":
-            
             #time
             temp_time=soup.select_one(class_name["time"][0]).get(class_name["time"][1])
             date_time_str = temp_time
@@ -148,23 +147,36 @@ def grab_link(link):
      #기사 리스트 유무
     return news_lists_links
 
+    
 def category_news_grab(word):
-    keyword={"사회":"society","정치":"politics","경제":"economic","국제":"foreign","문화":"culture","IT":"digital"}
-    category=keyword[word]
-    soup=soup_page(f'https://news.daum.net/{category}#1')
-    category_news=soup.find(class_="list_newsmajor").find_all(class_="tit_g")
-    article={
-        'press':[i.find('span').text for i in category_news],
-        'title':[i.find('a').text for i in category_news],
-        'link':[i.find('a').get('href') for i in category_news]
-    }
-    category_article=[]
-    for i in range(10):
-       category_article.append({
-        'press':article['press'][i],
-        'title':article['title'][i],
-        'link':article['link'][i]
-        })
-    return category_article
+     keyword={"사회":"society","정치":"politics","경제":"economic","국제":"foreign","문화":"culture","IT":"digital"}
+     category=keyword[word]
+     soup=soup_page(f'https://news.daum.net/{category}#1')
+     category_news=soup.find(class_="list_newsmajor").find_all(class_="tit_g")
+     article={
+         'press':[i.find('span').text for i in category_news],
+         'title':[i.find('a').text for i in category_news],
+         'link':[i.find('a').get('href') for i in category_news]
+     }
+     category_article=[]
+     for i in range(10):
+        category_article.append({
+         'press':article['press'][i],
+         'title':article['title'][i],
+         'link':article['link'][i]
+         })
+     return category_article
 
 
+
+# def category_news_grab_input(link):
+#     if "naver" in link:
+#         soup=soup_page(link)
+#         news_category = soup.find('em', class_="media_end_categorize_item").text
+#         keyword= {"정치":"100","경제":"101","사회":"102","생활":"103","IT":"105","세계":"104"}
+#         category=keyword[news_category]
+#         new_link = f'https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1={category}'
+#         new_soup=soup_page(new_link)
+#         category_news=new_soup.find(class_="section_body")
+#         print(new_soup.find("ul"))
+#     return 
