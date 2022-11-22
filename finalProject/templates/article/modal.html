@@ -29,7 +29,7 @@
     <button data-close-button class="close-button">&times;</button>
   </div>
   <div class="modal-body">
-    
+    <div class="modal-body__upper">
     <div class="crawling-time">분석 시간 : {{article.crawling_time}}</div>
   
     <div class="modal-img">
@@ -44,12 +44,12 @@
       />
       
     </div>
-    <div data-result class="modal-score">
-      <div class="progressbar" role="progressbar" aria-valuenow="{{article.result|floatformat:"0"}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{article.result|floatformat:"0"}}"></div>
-      <div class="modal-num">
+      <div data-result class="modal-score">
+        <div class="progressbar" role="progressbar" aria-valuenow="{{article.result|floatformat:"0"}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{article.result|floatformat:"0"}}"></div>
+        <div class="modal-num">
+        </div>
+        <div class="modal-text"></div>
       </div>
-      <div class="modal-text"></div>
-    </div>
     </div>
     <ul class="category-news-lists">
       {%for news in article.category_news%}
@@ -58,6 +58,7 @@
       </li>
       {%endfor%}
     </ul>
+    </div>
   </div>
 
   {% endfor %}

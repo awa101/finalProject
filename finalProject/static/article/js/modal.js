@@ -8,16 +8,16 @@ const linkSubmit = document.querySelector(".search-box > button");
 
 function evalResult(score) {
   if (score > 49) {
-    return { say: "정확합니다!", color: "#c4e759, #6de195", class: "high" };
+    return { say: "높음", color: "#c4e759, #6de195", class: "high" };
   } else if (50 > score && score > 29) {
     return {
-      say: "긴가민가 합니다@",
+      say: "보통",
       color: "#F78FAD,#FDEB82",
       class: "medium",
     };
   } else if (30 > score && score > 19) {
     return {
-      say: "아닐확률 높아요",
+      say: "낮음",
       color: "#A43AB2,#E13680",
       class: "low",
     };

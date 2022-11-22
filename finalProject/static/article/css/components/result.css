@@ -23,11 +23,11 @@
     opacity: 0;
   }
   50% {
-    height: 400px;
+    height: auto;
   }
   100% {
     opacity: 1;
-    height: 400px;
+    height: auto;
   }
 }
 
