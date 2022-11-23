@@ -17,7 +17,7 @@
   --percentage: var(--value);
   --primary: #369;
   --secondary: #adf;
-  --size: 300px;
+  --size: 500px;
   animation: progress 2s 0.5s forwards;
   width: var(--size);
   aspect-ratio: 2 / 1;
@@ -49,10 +49,10 @@
 
 [role="progressbar"]::after {
   counter-reset: percentage var(--value);
-  content: counter(percentage) "%";
+  content: counter(percentage) "";
   font-family: Helvetica, Arial, sans-serif;
   font-size: calc(var(--size) / 5);
-  color: var(--primary);
+  color: attr(font-color);
 }
 
 [role="progressbar"].low::before {
@@ -64,14 +64,15 @@
   height: 100%;
   background: conic-gradient(
     from 0.75turn at 50% 100%,
-    #a43ab2,
-    #e13680 calc(var(--percentage) * 1% / 2),
+    #fccf31,
+    #f55555 calc(var(--percentage) * 1% / 2),
     var(--secondary) calc(var(--percentage) * 1% / 2 + 0.1%)
   );
   mask: radial-gradient(at 50% 100%, white 55%, transparent 55.5%);
   mask-mode: alpha;
   -webkit-mask: radial-gradient(at 50% 100%, #0000 55%, #000 55.5%);
   -webkit-mask-mode: alpha;
+  color: #f55555;
 }
 
 [role="progressbar"].medium::before {
@@ -83,14 +84,15 @@
   height: 100%;
   background: conic-gradient(
     from 0.75turn at 50% 100%,
-    #f78fad,
-    #fdeb82 calc(var(--percentage) * 1% / 2),
+    #fdeb71,
+    #f8d800 calc(var(--percentage) * 1% / 2),
     var(--secondary) calc(var(--percentage) * 1% / 2 + 0.1%)
   );
   mask: radial-gradient(at 50% 100%, white 55%, transparent 55.5%);
   mask-mode: alpha;
   -webkit-mask: radial-gradient(at 50% 100%, #0000 55%, #000 55.5%);
   -webkit-mask-mode: alpha;
+  color: #f8d800;
 }
 
 [role="progressbar"].high::before {
@@ -110,4 +112,5 @@
   mask-mode: alpha;
   -webkit-mask: radial-gradient(at 50% 100%, #0000 55%, #000 55.5%);
   -webkit-mask-mode: alpha;
+  color: #6de195;
 }

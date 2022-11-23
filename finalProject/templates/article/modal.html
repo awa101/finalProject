@@ -7,7 +7,7 @@
             <span class="logo"
               ><img
                 src="{{article.logo}}"
-                style="height: 40px; margin-right: 10px"
+                style="height: 60px; margin-right: 10px"
             /></span>
             <span class="category">{{article.category}}</span>
         </div>  
@@ -17,8 +17,8 @@
       <div class="bigger-text">
         
         <div>
-          <span class="reporter">{{article.reporter}}</span>
-          <span class="time">{{article.publication_time}}</span>
+          <span class="reporter">{{article.reporter}} 기자 | </span>
+          <span class="time"> {{article.publication_time}}</span>
           <a href="{{article.link}}" target="_blank"><button class="link-button">본문 링크</button></a>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <img
         src="/static/media/article/wcimg{{article.articleid}}.png"
         style="
-          max-height: 400px;
+          max-height: 430px;
           border-radius: 10px;
           margin-left:-100px;
         "
@@ -45,10 +45,13 @@
       
     </div>
       <div data-result class="modal-score">
+        <div class="modal-text">
+          <h5>낚시성 기사인지 검사합니다. 점수가 높을수록 낚시성일 가능성이 낮습니다.</h5>
+          <h2></h2>
+        </div>
         <div class="progressbar" role="progressbar" aria-valuenow="{{article.result|floatformat:"0"}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{article.result|floatformat:"0"}}"></div>
         <div class="modal-num">
         </div>
-        <div class="modal-text"></div>
       </div>
     </div>
     <ul class="category-news-lists">
@@ -62,4 +65,4 @@
   </div>
 
   {% endfor %}
-</div>
+

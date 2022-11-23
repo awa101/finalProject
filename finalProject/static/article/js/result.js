@@ -28,26 +28,30 @@ function showResult(news) {
     scoreImg.closest(".score-detail__right").innerText = "사진이 없습니다.";
   }
   resultImg.setAttribute("src", `/static/media/article/wcimg${news.id}.png`);
-  scoreNum.setAttribute("aria-valuenow", parseInt(news.result));
-  scoreNum.setAttribute("style", `--value: ${parseInt(news.result)}`);
   tempScore = evalResult(news.result);
+  scoreNum.setAttribute("aria-valuenow", parseInt(news.result));
+  scoreNum.setAttribute(
+    "style",
+    `--value: ${parseInt(news.result)}; color:${tempScore.color.substr(0, 7)};`
+  );
   scoreNum.classList.add(tempScore.class);
   scoreText.innerText = tempScore.say;
+  scoreText.style.color = tempScore.color.substr(0, 7);
 }
 
 function evalResult(score) {
   if (score > 49) {
-    return { say: "높음", color: "#c4e759, #6de195", class: "high" };
+    return { say: "높음", color: "#6de195, #c4e759", class: "high" };
   } else if (50 > score && score > 29) {
     return {
       say: "보통",
-      color: "#F78FAD,#FDEB82",
+      color: "#f8d800,#fdeb71",
       class: "medium",
     };
   } else if (30 > score && score > 19) {
     return {
       say: "낮음",
-      color: "#A43AB2,#E13680",
+      color: "#f55555,#fccf31",
       class: "low",
     };
   }

@@ -8,17 +8,17 @@ const linkSubmit = document.querySelector(".search-box > button");
 
 function evalResult(score) {
   if (score > 49) {
-    return { say: "높음", color: "#c4e759, #6de195", class: "high" };
+    return { say: "높음", color: "#6de195, #c4e759", class: "high" };
   } else if (50 > score && score > 29) {
     return {
       say: "보통",
-      color: "#F78FAD,#FDEB82",
+      color: "#f8d800,#fdeb71",
       class: "medium",
     };
   } else if (30 > score && score > 19) {
     return {
       say: "낮음",
-      color: "#A43AB2,#E13680",
+      color: "#f55555,#fccf31",
       class: "low",
     };
   }
@@ -28,7 +28,9 @@ function paintModal(news) {
   const newsScore = news.querySelector(".progressbar");
   const temp = evalResult(newsScore.getAttribute("aria-valuenow"));
   newsScore.classList.add(temp.class);
-  news.querySelector(".modal-text").innerText = temp.say;
+  news.querySelector(".modal-text > h2").innerText = temp.say;
+  news.querySelector(".modal-text > h2").style.color = temp.color.substr(0, 7);
+  newsScore.style.color = temp.color.substr(0, 7);
 }
 
 openModalButtons.forEach((li) => {
@@ -65,6 +67,6 @@ cateogryNews.forEach((a) => {
     closeModal(modal);
     inputValue.value = a.getAttribute("href");
     linkSubmit.click();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 100, behavior: "smooth" });
   });
 });

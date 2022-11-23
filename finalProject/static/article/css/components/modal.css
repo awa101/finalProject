@@ -46,7 +46,7 @@
 }
 .crawling-time {
   position: absolute;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   opacity: 0.6;
   top: 20px;
@@ -59,15 +59,23 @@
   justify-content: center;
 }
 .modal-header .small-text > div > span {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.6);
   margin-right: 10px;
 }
 .modal-header .title {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
   text-align: start;
+}
+.modal-header .bigger-text {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.6;
+}
+.modal-header .bigger-text span {
+  margin-right: 10px;
 }
 
 .modal-header .close-button {
@@ -83,7 +91,7 @@
 }
 
 .modal-body__upper {
-  margin-top: 250px;
+  margin-top: 350px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -118,9 +126,9 @@
   pointer-events: none;
 }
 .link-button {
-  font-size: 13px;
-  width: 80px;
-  height: 25px;
+  font-size: 18px;
+  width: 100px;
+  height: 40px;
   margin: 10px;
   outline: none;
   background-color: white;
@@ -139,20 +147,39 @@
   font-weight: 700;
 }
 .modal-text {
-  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modal-text h2 {
+  font-size: 50px;
   font-weight: 500;
   padding-bottom: 5px;
-  font-weight: 700;
+  font-weight: 800;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
+.modal-text h5 {
+  position: absolute;
+  text-align: start;
+  font-size: 25px;
+  opacity: 0.6;
+  top: -100px;
+  left: 0px;
+  line-height: 30px;
+}
+
 .modal-score {
-  margin-top: 80px;
+  position: relative;
+  margin-top: 200px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
 }
 .modal-img {
-  margin-top: 80px;
+  margin-top: 200px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -170,6 +197,9 @@
 .small-text .title {
   margin: 30px 0px;
 }
+.category-news-lists {
+  margin-left: 100px;
+}
 
 .category-news-lists > li > a {
   text-decoration: none;
@@ -177,19 +207,18 @@
 }
 
 .category-news-lists > li > a > h2 {
-  font-size: 20px;
+  font-size: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1; /* number of lines to show */
   line-clamp: 1;
   -webkit-box-orient: vertical;
-  margin: 5px;
-  font-weight: 600;
+  margin: 10px;
 }
 
 .category-news-lists > li > a > h6 {
-  font-size: 8px;
+  font-size: 15px;
 }
 .category-news-lists > li > a {
   display: flex;

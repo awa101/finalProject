@@ -23,7 +23,7 @@
   flex-direction: column;
   background-color: white;
   padding: 20px;
-  width: 700px;
+  width: 900px;
   height: 400px;
   border-radius: 20px;
   transition: 0.2s ease-in-out;
@@ -79,7 +79,7 @@
 }
 .news-list__title {
   text-align: start;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   margin-top: 30px;
 }
