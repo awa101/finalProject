@@ -15,7 +15,6 @@ function showResult(news) {
   const scoreNum = document.querySelector(".score-result__num");
   const scoreText = document.querySelector(".score-result__text");
   const resultImg = document.querySelector(".score-result img");
-  console.log(news.id);
   scorePress.innerText = news.press;
   if (news.reporter !== "입력 ") {
     scoreReporter.innerText = news.reporter;
