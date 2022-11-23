@@ -129,7 +129,6 @@
 }
 .score-result__text {
   height: auto;
-  max-width: 150px;
   font-size: 50px;
   font-weight: 800;
   padding-bottom: 5px;
