@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 0;
+  transform: scale(2);
 }
 .dots {
   display: flex;

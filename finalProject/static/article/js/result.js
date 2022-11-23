@@ -33,6 +33,9 @@ function showResult(news) {
     "style",
     `--value: ${parseInt(news.result)}; color:${tempScore.color.substr(0, 7)};`
   );
+  scoreNum.classList.remove("high");
+  scoreNum.classList.remove("medium");
+  scoreNum.classList.remove("low");
   scoreNum.classList.add(tempScore.class);
   scoreText.innerText = tempScore.say;
   scoreText.style.color = tempScore.color.substr(0, 7);
