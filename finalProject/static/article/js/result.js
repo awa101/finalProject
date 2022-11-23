@@ -41,16 +41,16 @@ function showResult(news) {
 
 function evalResult(score) {
   if (score > 49) {
-    return { say: "높음", color: "#6de195, #c4e759", class: "high" };
+    return { say: "신뢰도 높음", color: "#6de195, #c4e759", class: "high" };
   } else if (50 > score && score > 29) {
     return {
-      say: "보통",
+      say: "신뢰도 보통",
       color: "#f8d800,#fdeb71",
       class: "medium",
     };
   } else if (30 > score && score > 19) {
     return {
-      say: "낮음",
+      say: "신뢰도 낮음",
       color: "#f55555,#fccf31",
       class: "low",
     };
