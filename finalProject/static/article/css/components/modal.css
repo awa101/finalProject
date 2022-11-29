@@ -92,7 +92,7 @@
 }
 
 .modal-body__upper {
-  margin-top: 350px;
+  margin-top: 280px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -109,7 +109,7 @@
   align-items: flex-start;
   padding: 10px 15px;
   overflow-y: scroll;
-  height: 500px;
+  height: 75%;
 }
 #overlay {
   display: flex;
