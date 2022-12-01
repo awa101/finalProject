@@ -79,6 +79,8 @@ h1 > i {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+}
+.header i {
   cursor: pointer;
 }
 .header h1 {
