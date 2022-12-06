@@ -9,4 +9,4 @@
 
 <img src='docs/img3.PNG'>
 <img src='docs/img2.PNG'>
-<img src='docs/img4.PNG'>
+<img src='docs/img4.png'>
